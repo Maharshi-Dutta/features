@@ -1,0 +1,143 @@
+.side {
+    height: 1000vh;
+    position: fixed;
+    width: 20%;
+    float: LEFT;
+  
+    background-color: #212428;
+    border-right: 1px solid #121;
+    padding: 10vh 2rem ;
+    background: linear-gradient(to right bottom, #121316, #212428);
+    box-shadow: 1px 4px 2px 3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px 2px rgba(255, 255, 255, 0.2) inset;
+    display: block;
+  }
+  .hamb{
+    background-color: transparent;
+  }
+  .ham{
+    width: 5vh;
+    display: none;
+    padding: 20px;
+  }
+  .me {
+    border: 5px solid #555;
+    border-radius: 50%;
+    box-shadow: 10px 10px 19px #1c1e22,
+      -10px -10px 19px #262a2e;
+  
+    box-shadow: 10px;
+    margin-left: 40px;
+  
+  }
+  
+  .nav {
+    list-style: none;
+    position: relative;
+    padding-right: 20vh;
+   
+  
+  }
+  
+  
+  .nav li {
+    padding: 0.5rem 0vh;
+    
+  }
+  
+  .nav li a {
+    text-decoration: none;
+    color: #C4cFDE;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+  }
+  
+  .nav li a i {
+    font-size: 22px;
+    margin-right: 20px;
+  }
+  
+  
+  .active {
+    background-color: aliceblue;
+    width: 70%;
+    height: 47px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgb(98, 223, 175);
+    left: 5%;
+    top: 2.6%;
+    z-index: -1;
+    position: absolute;
+    display: none;
+    transition: top 0.5s;
+  }
+  
+  .nav li a:hover {
+    color: #000;
+    transition: 0.3s;
+  }
+  
+  .nav li:hover~.active {
+    display: block;
+  }
+  
+  .nav li:nth-child(1):hover~.active {
+    top: 2.6%;
+  }
+  
+  .nav li:nth-child(2):hover~.active {
+    top: 22.6%;
+  }
+  
+  .nav li:nth-child(3):hover~.active {
+    top: 42.6%;
+  }
+  
+  .nav li:nth-child(4):hover~.active {
+    top: 62.6%;
+  }
+  
+  .nav li:nth-child(5):hover~.active {
+    top: 82.6%;
+  }
+  
+  .footer {
+    margin-left: 30px;
+    margin-right: 90px;
+    padding-left: 5px;
+    padding-bottom: 40px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    display: block;
+    background: linear-gradient(145deg, #1e2024, #23272b);
+  
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    z-index: 1;
+  }
+  
+  @media(min-width:1228px)
+  {
+    .hmb{
+        display: none;
+       }
+  }
+  
+  
+  @media  (max-width:1228px)
+  {
+   .side{
+display: none;
+   }
+ 
+   .ham{
+    display: block;
+    cursor: pointer;
+   }
+  }

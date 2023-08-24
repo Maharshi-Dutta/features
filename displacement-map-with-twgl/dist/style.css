@@ -1,0 +1,292 @@
+@font-face {
+  font-family: BentonSans;
+  font-weight: 200;
+  src: url(https://rawcdn.githack.com/AlainBarrios/Fonts/12a918f9bcc4da84b31926bb4f6bfc0f5f4a100c/BentonSans
+    Comp Light.otf?raw=true);
+}
+@font-face {
+  font-family: BentonSans;
+  font-weight: 600;
+  src: url(https://rawcdn.githack.com/AlainBarrios/Fonts/12a918f9bcc4da84b31926bb4f6bfc0f5f4a100c/BentonSans
+    Comp Bold.otf?raw=true);
+}
+@font-face {
+  font-family: BentonSans;
+  font-weight: 500;
+  src: url(https://rawcdn.githack.com/AlainBarrios/Fonts/12a918f9bcc4da84b31926bb4f6bfc0f5f4a100c/BentonSans
+    Comp Medium.otf?raw=true);
+}
+:root {
+  --benton: BentonSans;
+  --black: rgba(0, 0, 0, 1);
+  --white: rgba(255, 255, 255, 1);
+  --brown: rgb(202, 143, 83);
+  
+  --duration: 1s;
+  --ease: cubic-bezier(1, 0, 0, 1);
+}
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--benton);
+  margin: 0;
+}
+img{
+  max-width: 100%;
+  display: block;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+canvas {
+  display: block;
+  width: 100%;
+}
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container-fluid {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header-main {
+  width: 100%;
+  display: flex;
+  background-color: var(--white);
+  padding: 15px;
+  font-size: 0.8rem;
+  font-weight: 200;
+  letter-spacing: 0.15rem;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.logo-main{
+  width: 60px;
+}
+
+.nav-main {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.donate-link {
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  transition: border 0.3s;
+}
+
+.donate-link > a {
+  color: var(--black);
+  display: block;
+  transition: color 0.3s;
+}
+.donate-link > a:hover {
+  color: var(--brown);
+}
+.nav-main__menu {
+  display: flex;
+  justify-content: center;
+}
+.nav-main__menu__item {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.nav-main__menu__item > a{
+  color: var(--black);
+  padding: 5px;
+  transition: color 0.3s;
+}
+.nav-main__menu__item > a:hover {
+  color: var(--brown);
+}
+.slider {
+  width: 100%;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+.slider-content {
+  flex: 1;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+}
+.slider-content__text {
+  width: 50%;
+}
+.slider-content__text__animals {
+  display: grid;
+  grid-template-areas: "center";
+}
+/* Animacion para los titulos de animales */
+.slider-content__text__item {
+  grid-area: center;
+  transition: var(--duration) var(--ease);
+  transition-property: transform, opacity, filter;
+}
+.bottom.slider-content__text__item {
+  transform: translate3d(0,50%,0);
+  opacity: 0;
+  filter: blur(10px);
+}
+.current.slider-content__text__item {
+  transform: translate3d(0,0,0);
+}
+/*************************************/
+.slider-content__text__item > h1 {
+  font-size: 5rem;
+  margin: 0;
+  font-weight: 900;
+}
+.slider-content__text span {
+  position: relative;
+  opacity: 0.8;
+}
+.slider-content__text span::before {
+  content: "";
+  top: 50%;
+  left: calc(100% * 1.1);
+  transform: translateY(-50%);
+  position: absolute;
+  height: 2px;
+  width: 20px;
+  background-color: var(--white);
+}
+.slider-controls {
+  display: flex;
+  align-items: center;
+}
+.slider-controls__numbers {
+  position: relative;
+  display: grid;
+  grid-template-areas: "center";
+  font-size: 1.5rem;
+  right: 20px;
+}
+.slider-controls__numbers::before {
+  content: "";
+  position: absolute;
+  left: calc(100% * 1.1);
+  top: 50%;
+  transform: translatey(-50%);
+  height: 2px;
+  width: 20px;
+  background-color: var(--white);
+}
+/* Animacion para los numeros de los controles */
+.slider-controls__number {
+  grid-area: center;
+  transition: var(--duration) var(--ease);
+  transition-property: transform, opacity;
+}
+.top.slider-controls__number {
+  transform: translate3d(0,-100%,0);
+  opacity: 0;
+}
+.current.slider-controls__number {
+  transform: translate3d(0,0,0);
+}
+.bottom.slider-controls__number {
+  transform: translate3d(0,100%,0);
+  opacity: 0;
+}
+/************************************************/
+.slider-controls__circles {
+  margin-left: 15px;
+  position: relative;
+}
+.slider-controls__item {
+  --sizeBorder: 20px;
+  width: var(--sizeBorder);
+  height: var(--sizeBorder);
+  background-color: var(--black);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.slider-controls__item:not(:nth-child(1)) {
+  margin-top: 15px;
+}
+/* Punto del control para animar */
+.slider-controls__point {
+  --sizePoint: 10px;
+  top: calc(var(--sizePoint)/2);
+  left: calc(50% - var(--sizePoint)/2);
+  position: absolute;
+  background-color: var(--white);
+  width: var(--sizePoint);
+  height: var(--sizePoint);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--duration) var(--ease);
+  pointer-events: none;
+}
+.active.slider-controls__item:nth-child(1) ~ .slider-controls__point {
+  transform: translate3d(0,0,0);
+}
+.active.slider-controls__item:nth-child(2) ~ .slider-controls__point {
+  transform: translate3d(0,calc(35px),0);
+}
+.active.slider-controls__item:nth-child(3) ~ .slider-controls__point {
+  transform: translate3d(0,calc(70px),0);
+}
+.active.slider-controls__item:nth-child(4) ~ .slider-controls__point {
+  transform: translate3d(0,calc(105px),0);
+}
+/********************************/
+.move-to-down {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  font-size: 0.8rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  transform: translatex(-50%);
+}
+.move-to-down::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  top: 25px;
+  left: 50%;
+  transform: translatex(-50%);
+  background-color: var(--white);
+}
+.bm-difference {
+  mix-blend-mode: difference;
+}

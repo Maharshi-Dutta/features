@@ -1,0 +1,9 @@
+body{
+    background-color: black;
+}
+h1{
+    color: aliceblue;
+    font-family: sans-serif;
+    size: 5rem;
+    margin-top: 50vh;
+}

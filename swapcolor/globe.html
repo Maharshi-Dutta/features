@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="demo1
+    .css">
+    
+    <title>Document</title>
+</head>
+<script>
+
+function myFunctiong() {
+  a=document.getElementsByClassName("yellow")
+  for(let i=0;i<a.length;i++)
+  a[i].classList.toggle('green')
+
+};
+
+function myFunctionb() {
+  a=document.getElementsByClassName("yellow")
+  for(let i=0;i<a.length;i++)
+  a[i].classList.toggle('blue')
+};
+
+</script>
+<body style="padding: 0px;top: 0;background-color: rgb(84, 84, 84);"class="yellow">
+
+<div>
+    <h1 align="center">Demo 1</h1></div>
+<div style="background-color: rgb(124, 116, 116);height: 10rem;width:20rem;border-radius: 10px;margin-left: 10px;"class="yellow">
+</div>
+<br><br><br>
+<div style="background-color: rgb(124, 116, 116);height: 10rem;width:20rem;border-radius: 10px;margin-left: 70%;"class="yellow">
+</div>  
+<div style="background-color: rgb(124, 116, 116);height: 10rem;width:20rem;border-radius: 10px;margin-left: 10px;"class="yellow">
+    
+</div><br><br><br>
+<div style="background-color: rgb(124, 116, 116);height: 10rem;width:20rem;border-radius: 10px;margin-left: 70%;"class="yellow">
+</div>
+
+<button id ="bg"onclick="myFunctiong()">Green</button>
+<button id ="bb"onclick="myFunctionb()">blue</button>
+
+</body>
+</html>

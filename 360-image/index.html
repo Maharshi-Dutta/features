@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - 360 Image</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+	    <!-- Basic Page Needs
+	    ================================================== -->
+	    <meta charset="utf-8" charset="" />
+	    <title>360image </title>
+	    <!-- SEO Meta
+	    ================================================== -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="description" content="" />
+	    <meta name="keywords" content="" />
+	    <meta name="distribution" content="global" />
+	    <meta name="revisit-after" content="2 Days" />
+	    <meta name="robots" content="ALL" />
+	    <meta name="rating" content="8 YEARS" />
+	    <meta name="Language" content="en-us" />
+	    <meta http-equiv="reply-to" content="" />
+	    <meta name="GOOGLEBOT" content="NOARCHIVE" />
+	    <!-- Mobile Specific Metas
+	    ================================================== -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	    <!-- CSS
+	    ================================================== -->
+	    <!-- BOOTSTRAP STYLES-->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" /> 
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" /> 
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap-grid.min.css" />	    
+	    <!--[if lt IE 9]>
+	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+	    <!-- Favicons
+	    ================================================== -->
+	    <link rel="shortcut icon" href="asset/images/favicon_01.ico" type="image/x-icon" />
+	    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+	    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+	    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+	    <!--[if gte IE 9]>
+	    <style type="text/css">
+		    .gradient {
+		    	filter: none;
+		    }
+	    </style>--> 
+
+	    <style type="text/css">
+			.cd-product-viewer-wrapper {text-align: center; padding: 2em 0; }
+			.cd-product-viewer-wrapper > div {display: inline-block; }
+			.cd-product-viewer-wrapper .product-viewer {position: relative; z-index: 1; display: inline-block; overflow: hidden; }
+			.cd-product-viewer-wrapper img {display: block; position: relative; z-index: 1; width:100%; }
+			.cd-product-viewer-wrapper .product-sprite {position: absolute; z-index: 2; top: 0; left: 0; height: 100%; width: 1600%; background: url(https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa.png) no-repeat center center; background-size: 100%; opacity: 0; -webkit-transition: opacity 0.3s; -moz-transition: opacity 0.3s; transition: opacity 0.3s; }
+			.cd-product-viewer-wrapper.loaded .product-sprite { opacity: 1; cursor: ew-resize; }
+			.cd-product-viewer-handle {position: relative; z-index: 2; width: 60%; max-width: 300px; border-radius: 50em; margin: 1em auto 3em; height: 4px; background: #4d4d4d; }
+			.cd-product-viewer-handle .fill { position: absolute; z-index: 1; left: 0; top: 0; height: 100%; width: 100%; border-radius: inherit; background: #b54240; -webkit-transform: scaleX(0); -moz-transform: scaleX(0); -ms-transform: scaleX(0); -o-transform: scaleX(0); transform: scaleX(0); -webkit-transform-origin: left center; -moz-transform-origin: left center; -ms-transform-origin: left center; -o-transform-origin: left center; transform-origin: left center; -webkit-transition: -webkit-transform 0.5s; -moz-transition: -moz-transform 0.5s; transition: transform 0.5s; }
+			.no-csstransitions .cd-product-viewer-handle .fill {display: none; }
+			.loaded .cd-product-viewer-handle .fill { opacity: 0; -webkit-transition: -webkit-transform 0.3s, opacity 0.2s 0.3s; -moz-transition: -moz-transform 0.3s, opacity 0.2s 0.3s; transition: transform 0.3s, opacity 0.2s 0.3s; }
+			.cd-product-viewer-handle .handle {position: absolute; z-index: 2; display: inline-block; height: 44px; width: 44px; left: 0; top: -20px; background: #b54240 url(https://codyhouse.co/demo/360-degrees-product-viewer/img/cd-arrows.svg) no-repeat center center; border-radius: 50%; box-shadow: 0 0 0 6px rgba(181, 66, 64, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);  text-indent: 100%; white-space: nowrap; overflow: hidden; color: transparent; -webkit-transform: translateX(-50%) scale(0); -moz-transform: translateX(-50%) scale(0); -ms-transform: translateX(-50%) scale(0); -o-transform: translateX(-50%) scale(0); transform: translateX(-50%) scale(0); -webkit-transition: box-shadow 0.2s; -moz-transition: box-shadow 0.2s; transition: box-shadow 0.2s; }
+			.cd-product-viewer-handle .handle:active {box-shadow: 0 0 0 0 rgba(181, 66, 64, 0), 0 0 20px rgba(0, 0, 0, 0.2); }
+			.loaded .cd-product-viewer-handle .handle {  -webkit-transform: translateX(-50%) scale(1); -moz-transform: translateX(-50%) scale(1); -ms-transform: translateX(-50%) scale(1); -o-transform: translateX(-50%) scale(1); transform: translateX(-50%) scale(1); -webkit-animation: cd-bounce 0.3s 0.3s; -moz-animation: cd-bounce 0.3s 0.3s; animation: cd-bounce 0.3s 0.3s; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; animation-fill-mode: both; cursor: ew-resize; }
+
+			@-webkit-keyframes cd-bounce {
+			    0% {
+			        -webkit-transform: translateX(-50%) scale(0);
+			    }
+			    60% {
+			        -webkit-transform: translateX(-50%) scale(1.1);
+			    }
+			    100% {
+			        -webkit-transform: translateX(-50%) scale(1);
+			    }
+			}
+			@-moz-keyframes cd-bounce {
+			    0% {
+			        -moz-transform: translateX(-50%) scale(0);
+			    }
+			    60% {
+			        -moz-transform: translateX(-50%) scale(1.1);
+			    }
+			    100% {
+			        -moz-transform: translateX(-50%) scale(1);
+			    }
+			}
+			@keyframes cd-bounce {
+			    0% {-webkit-transform: translateX(-50%) scale(0); -moz-transform: translateX(-50%) scale(0); -ms-transform: translateX(-50%) scale(0); -o-transform: translateX(-50%) scale(0); transform: translateX(-50%) scale(0); }
+			    60% {-webkit-transform: translateX(-50%) scale(1.1); -moz-transform: translateX(-50%) scale(1.1); -ms-transform: translateX(-50%) scale(1.1); -o-transform: translateX(-50%) scale(1.1); transform: translateX(-50%) scale(1.1); }
+			    100% {-webkit-transform: translateX(-50%) scale(1); -moz-transform: translateX(-50%) scale(1); -ms-transform: translateX(-50%) scale(1); -o-transform: translateX(-50%) scale(1); transform: translateX(-50%) scale(1); }
+			}
+		</style>
+	</head> 
+	<body>
+		<div class="container">
+			<div class="row ">
+				<div class="col-md-12 pt-5">
+					<div class="page-title text-center">
+						<h3><strong>360 Image</strong></h3>
+					</div>
+				</div>
+				<div class="col-md-12 pb-5">
+		 			<div class="cd-product-viewer-wrapper" data-frame="16" data-friction="0.33">
+						<div>
+							<figure class="product-viewer">
+								<img src="https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa-loading.jpg" alt="Product Preview">
+								<div class="product-sprite" data-image="https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa.png"></div>
+							</figure>   
+						</div>  
+					</div>  
+				</div> 
+			</div> 
+		</div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/esm/popper.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 		<!-- 360 image  -->
+	 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>  
+<!-- 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>		  -->
+		<script type="text/javascript">
+			jQuery(document).ready(function($){
+
+				var productViewer = function(element) {
+					this.element = element;
+					this.handleContainer = this.element.find('.cd-product-viewer-handle');
+					this.handleFill = this.handleContainer.children('.fill');
+					this.handle = this.handleContainer.children('.handle');
+					this.imageWrapper = this.element.find('.product-viewer');
+					this.slideShow = this.imageWrapper.children('.product-sprite');
+					this.frames = this.element.data('frame');
+					//increase this value to increase the friction while dragging on the image - it has to be bigger than zero
+					this.friction = this.element.data('friction');
+					this.visibleFrame = 0;
+					this.loaded = false;
+					this.animating = false;
+					this.xPosition = 0;
+					this.loadFrames();
+				} 
+
+				productViewer.prototype.loadFrames = function() {
+					var self = this,
+						imageUrl = this.slideShow.data('image'),
+						newImg = $('<img/>');
+					this.loading('0.5');
+					//you need this to check if the image sprite has been loaded
+					newImg.attr('src', imageUrl).load(function() {
+						$(this).remove();
+			  			self.loaded = true;
+			  		}).each(function(){
+			  			image = this;
+						if(image.complete) {
+					    	$(image).trigger('load');
+					  	}
+					});
+				}
+
+				productViewer.prototype.loading = function(percentage) {
+					var self = this;
+					transformElement(this.handleFill, 'scaleX('+ percentage +')');
+					setTimeout(function(){
+						if( self.loaded ){
+							//sprite image has been loaded
+							self.element.addClass('loaded');
+							transformElement(self.handleFill, 'scaleX(1)');
+							self.dragImage();
+							if(self.handle) self.dragHandle();
+						} else {
+							//sprite image has not been loaded - increase self.handleFill scale value
+							var newPercentage = parseFloat(percentage) + .1;
+							if ( newPercentage < 1 ) {
+								self.loading(newPercentage);
+							} else {
+								self.loading(parseFloat(percentage));
+							}
+						}
+					}, 500);
+				}
+				//draggable funtionality - credits to http://css-tricks.com/snippets/jquery/draggable-without-jquery-ui/
+				productViewer.prototype.dragHandle = function() {
+					//implement handle draggability
+					var self = this;
+					self.handle.on('mousedown vmousedown', function (e) {
+				        self.handle.addClass('cd-draggable');
+				        var dragWidth = self.handle.outerWidth(),
+				            containerOffset = self.handleContainer.offset().left,
+				            containerWidth = self.handleContainer.outerWidth(),
+				            minLeft = containerOffset - dragWidth/2,
+				            maxLeft = containerOffset + containerWidth - dragWidth/2;
+
+				        self.xPosition = self.handle.offset().left + dragWidth - e.pageX;
+
+				        self.element.on('mousemove vmousemove', function (e) {
+				        	if( !self.animating) {
+				        		self.animating =  true;
+					        	( !window.requestAnimationFrame )
+					        		? setTimeout(function(){self.animateDraggedHandle(e, dragWidth, containerOffset, containerWidth, minLeft, maxLeft);}, 100)
+					        		: requestAnimationFrame(function(){self.animateDraggedHandle(e, dragWidth, containerOffset, containerWidth, minLeft, maxLeft);});
+				        	}
+				        }).one('mouseup vmouseup', function (e) {
+				            self.handle.removeClass('cd-draggable');
+				            self.element.off('mousemove vmousemove');
+				        });
+
+				        e.preventDefault();
+
+				    }).on('mouseup vmouseup', function (e) {
+				        self.handle.removeClass('cd-draggable');
+				    });
+				}
+
+				productViewer.prototype.animateDraggedHandle = function(e, dragWidth, containerOffset, containerWidth, minLeft, maxLeft) {
+					var self = this;
+					var leftValue = e.pageX + self.xPosition - dragWidth;
+				    // constrain the draggable element to move inside his container
+				    if (leftValue < minLeft) {
+				        leftValue = minLeft;
+				    } else if (leftValue > maxLeft) {
+				        leftValue = maxLeft;
+				    }
+
+				    var widthValue = Math.ceil( (leftValue + dragWidth / 2 - containerOffset) * 1000 / containerWidth)/10;
+				    self.visibleFrame = Math.ceil( (widthValue * (self.frames-1))/100 );
+
+				    //update image frame
+				    self.updateFrame();
+				    //update handle position
+				    $('.cd-draggable', self.handleContainer).css('left', widthValue + '%').one('mouseup vmouseup', function () {
+				        $(this).removeClass('cd-draggable');
+				    });
+
+				    self.animating = false;
+				}
+
+				productViewer.prototype.dragImage = function() {
+					//implement image draggability
+					var self = this;
+					self.slideShow.on('mousedown vmousedown', function (e) {
+				        self.slideShow.addClass('cd-draggable');
+				        var containerOffset = self.imageWrapper.offset().left,
+				            containerWidth = self.imageWrapper.outerWidth(),
+				            minFrame = 0,
+				            maxFrame = self.frames - 1;
+
+				        self.xPosition = e.pageX;
+
+				        self.element.on('mousemove vmousemove', function (e) {
+				        	if( !self.animating) {
+				        		self.animating =  true;
+					        	( !window.requestAnimationFrame )
+					        		? setTimeout(function(){self.animateDraggedImage(e, containerOffset, containerWidth);}, 100)
+					        		: requestAnimationFrame(function(){self.animateDraggedImage(e, containerOffset, containerWidth);});
+					        }
+				        }).one('mouseup vmouseup', function (e) {
+				            self.slideShow.removeClass('cd-draggable');
+				            self.element.off('mousemove vmousemove');
+				            self.updateHandle();
+				        });
+
+				        e.preventDefault();
+
+				    }).on('mouseup vmouseup', function (e) {
+				        self.slideShow.removeClass('cd-draggable');
+				    });
+				}
+
+				productViewer.prototype.animateDraggedImage = function(e, containerOffset, containerWidth) {
+					var self = this;
+					var leftValue = self.xPosition - e.pageX;
+			        var widthValue = Math.ceil( (leftValue) * 100 / ( containerWidth * self.friction ));
+			        var frame = (widthValue * (self.frames-1))/100;
+			        if( frame > 0 ) {
+			        	frame = Math.floor(frame);
+			        } else {
+			        	frame = Math.ceil(frame);
+			        }
+			        var newFrame = self.visibleFrame + frame;
+
+			        if (newFrame < 0) {
+			            newFrame = self.frames - 1;
+			        } else if (newFrame > self.frames - 1) {
+			            newFrame = 0;
+			        }
+
+			        if( newFrame != self.visibleFrame ) {
+			        	self.visibleFrame = newFrame;
+			        	self.updateFrame();
+			        	self.xPosition = e.pageX;
+			        }
+
+			        self.animating =  false;
+				}
+
+				productViewer.prototype.updateHandle = function() {
+					if(this.handle) {
+						var widthValue = 100*this.visibleFrame/this.frames;
+						this.handle.animate({'left': widthValue + '%'}, 200);
+					}
+				}
+
+				productViewer.prototype.updateFrame = function() {
+					var transformValue = - (100 * this.visibleFrame/this.frames);
+					transformElement(this.slideShow, 'translateX('+transformValue+'%)');
+				}
+
+				function transformElement(element, value) {
+					element.css({
+						'-moz-transform': value,
+					    '-webkit-transform': value,
+						'-ms-transform': value,
+						'-o-transform': value,
+						'transform': value,
+					});
+				}
+
+				var productToursWrapper = $('.cd-product-viewer-wrapper');
+				productToursWrapper.each(function(){
+					new productViewer($(this));
+				});
+			});
+		</script>
+	</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

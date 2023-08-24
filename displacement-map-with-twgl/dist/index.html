@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Displacement map with twgl</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <header class="header-main">
+      <nav class="nav-main container-fluid">
+        <a href="/"><img src="" alt="" class="logo-main"></a>
+        <ul class="nav-main__menu">
+          <li class="nav-main__menu__item"><a href="">about</a></li>
+          <li class="nav-main__menu__item"><a href="">our work</a></li>
+          <li class="nav-main__menu__item"><a href="">contact</a></li>
+        </ul>
+        <span class="donate-link"><a href="">donate</a></span>
+      </nav>
+  </header>
+  <div class="slider">
+    <canvas id="canvas"></canvas> 
+    <div class="slider-content container-fluid bm-difference"> 
+      <div class="slider-content__text">  
+        <span>Name of animal</span>
+        <div class="slider-content__text__animals">
+         <div class="slider-content__text__item current">
+              <h1>Wolf</h1>
+              <p></p>
+         </div>
+         <div class="slider-content__text__item bottom">
+              <h1>Tiger</h1>
+              <p></p>
+          </div>
+          <div class="slider-content__text__item bottom">
+              <h1>Fox</h1>
+              <p></p>
+          </div>
+          <div class="slider-content__text__item bottom">
+              <h1>Deer</h1>
+              <p></p>
+          </div> 
+        </div>
+
+      </div>
+      <div class="slider-controls">
+        <div class="slider-controls__numbers">
+          <span class="slider-controls__number current">01</span>
+          <span class="slider-controls__number bottom">02</span>
+          <span class="slider-controls__number bottom">03</span>
+          <span class="slider-controls__number bottom">04</span>
+        </div>
+        <div class="slider-controls__circles">
+          <div data-control class="slider-controls__item active"></div>
+          <div data-control class="slider-controls__item"></div>
+          <div data-control class="slider-controls__item"></div>
+          <div data-control class="slider-controls__item"></div>
+          <div class="slider-controls__point">
+        </div>
+      </div>
+    </div>
+    <div class="move-to-down">Down Here</div>
+  </div> 
+  </div>
+</div>
+
+<script id="vs" type="f">
+  attribute vec2 position;
+  attribute vec2 texcoord;
+
+  uniform mat3 u_matrix;
+
+  varying vec2 v_texcoord;
+
+  void main() {
+     gl_Position = vec4(u_matrix * vec3(position, 1), 1);
+     v_texcoord = texcoord;
+  }
+</script>
+<script id="fs" type="f">
+  precision mediump float;
+
+  uniform float u_time;
+  uniform vec2 u_res;
+  uniform vec2 u_mouse;
+  uniform float u_anim;
+
+  // our textures
+  uniform sampler2D u_text0;
+  uniform sampler2D u_text1;
+
+  // the texcoords passed in from the vertex shader.
+  varying vec2 v_texcoord;
+
+  void main() {
+     vec2 uv = v_texcoord;
+    
+     float displaceAmount = 0.3;
+     float blend0 = u_anim;
+     float blend1 = 1. - u_anim;
+
+     vec4 depth0 = texture2D(u_text0, uv);
+     vec4 depth1 = texture2D(u_text1, uv);
+
+     float t0 = depth0.r * displaceAmount * blend0 * 2.;
+     float t1 = depth1.r * displaceAmount * blend1 * 2.;
+    
+     vec4 color0 = texture2D(u_text0, vec2(uv.x, uv.y - t0)) * blend1;  
+     vec4 color1 = texture2D(u_text1, vec2(uv.x, uv.y - t1)) * blend0;
+    
+     gl_FragColor = color0.bbra * blend0 + color0 + color1.bbra * blend1 + color1;
+  }
+</script>
+<!-- partial -->
+  <script src='https://cdn.rawgit.com/greggman/twgl.js/master/dist/4.x/twgl-full.min.js'></script>
+<script src='https://webglfundamentals.org/webgl/resources/m3.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
